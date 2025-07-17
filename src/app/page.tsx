@@ -14,11 +14,11 @@ export default function Home() {
     <Flex
       height="100vh"
       bg="white"
-      align="center"
+      align={{ base: "start", sm: "center" }}
       justify="center"
       p={{ base: 6, sm: 12 }}
     >
-      <Box mt={{ base: 4, sm: 100 }} maxW={400}>
+      <Box mt={{ base: 20, sm: 100 }} maxW={400}>
         <VStack
           // fontSize={12}
           gap={2}
