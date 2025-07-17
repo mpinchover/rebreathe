@@ -11,7 +11,13 @@ import doctor_image from "./image_1.png";
 
 export default function Home() {
   return (
-    <Flex height="100vh" bg="white" align="center" justify="center" p={12}>
+    <Flex
+      height="100vh"
+      bg="white"
+      align="center"
+      justify="center"
+      p={{ base: 8, sm: 12 }}
+    >
       <Box mt={{ base: 0, sm: 100 }} maxW={400}>
         <VStack gap={2} fontSize="lg" color="gray.700" align="start">
           <Text as="p">Online virtual pulmonary rehab therapy.</Text>
