@@ -18,8 +18,14 @@ export default function Home() {
       justify="center"
       p={{ base: 8, sm: 12 }}
     >
-      <Box mt={{ base: 0, sm: 100 }} maxW={400}>
-        <VStack gap={2} fontSize="lg" color="gray.700" align="start">
+      <Box mt={{ base: 16, sm: 100 }} maxW={400}>
+        <VStack
+          // fontSize={12}
+          gap={2}
+          fontSize={{ base: "md", sm: "lg" }}
+          color="gray.700"
+          align="start"
+        >
           <Text as="p">Online virtual pulmonary rehab therapy.</Text>
           <Text as="p">Customized sessions for each patient.</Text>
           <Text as="p">Weekly analysis by board-certified pulmonologist.</Text>
@@ -67,7 +73,7 @@ export default function Home() {
               borderRadius="full"
               objectFit="cover"
             />
-            <Text color="gray.700">
+            <Text fontSize={{ base: "sm", sm: "md" }} color="gray.700">
               <CHLink
                 href="https://www.linkedin.com/in/zackpinchover/"
                 target="_blank"
