@@ -1,3 +1,4 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Provider } from "@/components/ui/provider";
 import Navbar from "./navbar/navbar";

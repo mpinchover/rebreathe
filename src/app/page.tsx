@@ -12,7 +12,7 @@ import doctor_image from "./image_1.png";
 export default function Home() {
   return (
     <Flex
-      height="100vh"
+      height="100dvh"
       bg="white"
       align={{ base: "start", sm: "center" }}
       justify="center"
