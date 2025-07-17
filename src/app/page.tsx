@@ -18,7 +18,7 @@ export default function Home() {
       justify="center"
       p={{ base: 6, sm: 12 }}
     >
-      <Box mt={{ base: 12, sm: 100 }} maxW={400}>
+      <Box mt={{ base: 4, sm: 100 }} maxW={400}>
         <VStack
           // fontSize={12}
           gap={2}
@@ -40,13 +40,13 @@ export default function Home() {
           >
             <Button
               as="span"
-              p={6}
+              p={{ base: 4, sm: 6 }}
               borderRadius="xl"
               width="100%"
               backgroundColor="black"
               color="white"
               fontWeight="semibold"
-              fontSize="md"
+              fontSize={{ base: "sm", sm: "md" }}
               variant="solid"
               _hover={{}}
             >
@@ -55,13 +55,13 @@ export default function Home() {
           </CHLink>
 
           <Button
-            p={6}
+            p={{ base: 4, sm: 6 }}
             borderRadius="xl"
             width="100%"
             borderColor="grey"
             variant="outline"
             fontWeight="semibold"
-            fontSize="md"
+            fontSize={{ base: "sm", sm: "md" }}
             color="grey"
             _hover={{ backgroundColor: "white" }}
           >
@@ -75,8 +75,8 @@ export default function Home() {
             <Image
               src={doctor_image.src}
               alt="Dr. Zachary Pinchover"
-              height="120px"
-              width="120px"
+              height={{ base: "80px", md: "120px" }}
+              width={{ base: "80px", md: "120px" }}
               borderRadius="full"
               objectFit="cover"
             />
