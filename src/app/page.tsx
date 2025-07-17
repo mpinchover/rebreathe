@@ -16,9 +16,9 @@ export default function Home() {
       bg="white"
       align="center"
       justify="center"
-      p={{ base: 8, sm: 12 }}
+      p={{ base: 6, sm: 12 }}
     >
-      <Box mt={{ base: 16, sm: 100 }} maxW={400}>
+      <Box mt={{ base: 12, sm: 100 }} maxW={400}>
         <VStack
           // fontSize={12}
           gap={2}
@@ -32,27 +32,34 @@ export default function Home() {
         </VStack>
 
         <VStack gap={4} mt={6}>
-          <Button
-            p={6}
-            borderRadius="xl"
+          <CHLink
+            href="https://findhousing.typeform.com/to/IFtnsUS2"
+            target="_blank"
             width="100%"
-            backgroundColor="black"
-            color="white"
-            // colorScheme="black"
-            variant="solid" // solid = filled background
-            fontWeight="semibold"
-            fontSize="md"
-            _hover={{}}
+            _hover={{ textDecoration: "none" }} // removes underline on hover
           >
-            Set up a session
-          </Button>
+            <Button
+              as="span"
+              p={6}
+              borderRadius="xl"
+              width="100%"
+              backgroundColor="black"
+              color="white"
+              fontWeight="semibold"
+              fontSize="md"
+              variant="solid"
+              _hover={{}}
+            >
+              Set up a session
+            </Button>
+          </CHLink>
+
           <Button
             p={6}
             borderRadius="xl"
             width="100%"
-            // colorScheme="teal"
             borderColor="grey"
-            variant="outline" // outline = bordered
+            variant="outline"
             fontWeight="semibold"
             fontSize="md"
             color="grey"
