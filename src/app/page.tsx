@@ -89,7 +89,7 @@ export default function Home() {
                 _hover={{ textDecoration: "underline" }}
               >
                 Dr. Zachary Pinchover
-              </CHLink>
+              </CHLink>{" "}
               is a Pulmonary and Critical Care Physician specializing in
               Advanced Lung Diseases.
             </Text>
