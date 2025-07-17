@@ -1,17 +1,25 @@
-import { Box, Button, Flex, Text, VStack, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Text,
+  VStack,
+  Image,
+  Link as CHLink,
+} from "@chakra-ui/react";
 import doctor_image from "./image_1.png";
 
 export default function Home() {
   return (
     <Flex height="100vh" bg="white" align="center" justify="center" p={12}>
-      <Box mt={10} maxW={400}>
-        <Box fontSize="lg" color="gray.700" lineHeight={2}>
+      <Box maxW={400}>
+        <VStack gap={2} fontSize="lg" color="gray.700" align="start">
           <Text as="p">Online virtual pulmonary rehab therapy.</Text>
           <Text as="p">Customized sessions for each patient.</Text>
           <Text as="p">Weekly analysis by board-certified pulmonologist.</Text>
-        </Box>
+        </VStack>
 
-        <VStack spacing={4} mt={6}>
+        <VStack gap={4} mt={6}>
           <Button
             p={6}
             borderRadius="xl"
@@ -44,7 +52,7 @@ export default function Home() {
 
         {/* Doctor Info Box */}
         <Box mt={6} bg="gray.50" p={6} borderRadius="lg">
-          <Flex align="center" gap={6}>
+          <Flex align="center" gap={6} flexDir={"column"}>
             <Image
               src={doctor_image.src}
               alt="Dr. Zachary Pinchover"
@@ -54,8 +62,17 @@ export default function Home() {
               objectFit="cover"
             />
             <Text color="gray.700">
-              Dr. Zachary Pinchover is a Pulmonary and Critical Care Physician
-              specializing in Advanced Lung Diseases.
+              <CHLink
+                href="https://www.linkedin.com/in/zackpinchover/"
+                target="_blank"
+                color="teal.600"
+                fontWeight="semibold"
+                _hover={{ textDecoration: "underline" }}
+              >
+                Dr. Zachary Pinchover
+              </CHLink>
+              is a Pulmonary and Critical Care Physician specializing in
+              Advanced Lung Diseases.
             </Text>
           </Flex>
         </Box>
