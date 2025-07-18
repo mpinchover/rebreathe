@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Provider } from "@/components/ui/provider";
 import Navbar from "./navbar/navbar";
+import { Toaster, toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "ReBreathe",
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html suppressHydrationWarning>
       <body>
         <Provider>
+          <Toaster />
           <Navbar />
           {children}
         </Provider>
