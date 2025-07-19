@@ -18,8 +18,8 @@ import doctor_image from "./image_1.png";
 
 const paddingProps = {
   paddingTop: { base: 10, sm: 10 },
-  paddingLeft: { base: 2, sm: 5 },
-  paddingRight: { base: 2, sm: 5 },
+  paddingLeft: { base: 4, sm: 5 },
+  paddingRight: { base: 4, sm: 5 },
   paddingBottom: { base: 10, sm: 10 },
 };
 
@@ -41,10 +41,7 @@ export default function Home() {
         // paddingY={50}
 
         // p={{ base: 4, sm: 10 }}
-        paddingTop={{ base: 2, sm: 10 }}
-        paddingLeft={{ base: 2, sm: 5 }}
-        paddingRight={{ base: 2, sm: 5 }}
-        paddingBottom={{ base: 10, sm: 10 }}
+        {...paddingProps}
         alignItems="center"
         justifyContent={"center"}
         // color="black"
