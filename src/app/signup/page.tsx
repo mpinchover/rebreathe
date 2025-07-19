@@ -51,7 +51,7 @@ const Signup = () => {
       minHeight="100dvh"
       bg="white"
       align={{ base: "start", sm: "center" }}
-      justify="center"
+      //   justify="center"
       flexDir={"column"}
       // p={{ base: 6, sm: 12 }}
     >
@@ -60,7 +60,8 @@ const Signup = () => {
         bgColor="white"
         // paddingY={50}
 
-        p={{ base: 4, sm: 10 }}
+        // p={{ base: 4, sm: 10 }}
+        mt={20}
         paddingTop={{ base: 2, sm: 10 }}
         paddingLeft={{ base: 2, sm: 5 }}
         paddingRight={{ base: 2, sm: 5 }}
