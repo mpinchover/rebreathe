@@ -15,6 +15,8 @@ import { Package, Video, Stethoscope } from "lucide-react"; // or your choice of
 import { useRouter } from "next/navigation";
 
 import doctor_image from "./image_1.png";
+import bg_image from "./bg_image_2.png";
+import bg_image_3 from "./bg_image_3.png";
 
 const paddingProps = {
   paddingTop: { base: 10, sm: 10 },
@@ -27,86 +29,125 @@ export default function Home() {
   const router = useRouter();
   return (
     <Flex
-      color="gray.700"
-      minHeight="100dvh"
+      color="gray.100"
       bg="white"
       align={{ base: "start", sm: "center" }}
       justify="center"
       flexDir={"column"}
       // p={{ base: 6, sm: 12 }}
     >
-      <Flex
-        mt={20}
-        width="100%"
-        bgColor="white"
-        // paddingY={50}
+      <Flex height="100dvh" flexDir={"column"} width="100%">
+        <Flex
+          flex={1}
+          // mt={20}
+          color="gray.200"
+          width="100%"
+          backgroundImage={`
+        linear-gradient(to bottom, rgba(0, 0, 0, .4), rgba(0, 0, 0, 0.9)),
+        url(${bg_image.src})
+      `}
+          backgroundSize="cover"
+          backgroundPosition="top"
+          backgroundRepeat="no-repeat"
+          // bgColor="white"
 
-        // p={{ base: 4, sm: 10 }}
-        {...paddingProps}
-        alignItems="center"
-        justifyContent={"center"}
-        // color="black"
-      >
-        <VStack
-          align="start"
-          width={{ base: 400, sm: 600 }}
-          maxW={{ base: 400, sm: 600 }}
+          // paddingY={50}
+
+          // p={{ base: 4, sm: 10 }}
+          {...{ ...paddingProps, paddingTop: "100px" }}
+          alignItems="center"
+          justifyContent={"center"}
+          // color="black"
         >
-          <Heading size="3xl">Pulmonary rehabilitation from home</Heading>
-          <Box width="100%" mt={4}>
-            <Flex align="center" mb={2}>
-              <Package size={20} style={{ marginRight: 8 }} />
-              <Heading size="lg">Equipment shipped to your home</Heading>
-            </Flex>
+          <VStack
+            align="start"
+            width={{ base: 400, sm: 600 }}
+            maxW={{ base: 400, sm: 600 }}
+          >
+            <Heading size="3xl">Pulmonary rehabilitation from home</Heading>
+            <Box width="100%" mt={4}>
+              <Flex align="center" mb={2}>
+                <Package size={20} style={{ marginRight: 8 }} />
+                <Heading size="lg">Equipment shipped to your home</Heading>
+              </Flex>
 
-            <Flex align="center" mb={2}>
-              <Video size={20} style={{ marginRight: 8 }} />
-              <Heading size="lg">Virtual therapy appointments</Heading>
-            </Flex>
+              <Flex align="center" mb={2}>
+                <Video size={20} style={{ marginRight: 8 }} />
+                <Heading size="lg">Virtual therapy appointments</Heading>
+              </Flex>
 
-            <Flex align="center">
-              <Stethoscope size={20} style={{ marginRight: 8 }} />
-              <Heading size="lg">
-                Consultations with pulmonary specialists
-              </Heading>
-            </Flex>
+              <Flex align="center">
+                <Stethoscope size={20} style={{ marginRight: 8 }} />
+                <Heading size="lg">
+                  Consultations with pulmonary specialists
+                </Heading>
+              </Flex>
+            </Box>
+          </VStack>
+        </Flex>
 
-            <VStack mt={4} gapY={4}>
-              <Button
-                // cursor="pointer"
-                // as="span"
-                p={{ base: 4, sm: 6 }}
-                borderRadius="xl"
-                width="100%"
-                // backgroundColor="black"
-                // color="white"
-                fontWeight="semibold"
-                fontSize={{ base: "sm", sm: "md" }}
-                variant="solid"
-                backgroundColor="gray.700"
-                // _hover={{}}
-                // _hover={{ cursor: "pointer", bg: "gray.200" }} // force it
-                onClick={() => router.push("/signup")}
-              >
-                Set up a session
-              </Button>
-              <Button
-                cursor="pointer"
-                p={{ base: 4, sm: 6 }}
-                borderRadius="xl"
-                width="100%"
-                // borderColor="grey"
-                variant="outline"
-                fontWeight="semibold"
-                fontSize={{ base: "sm", sm: "md" }}
-                // color="grey"
-                // _hover={{ backgroundColor: "white" }}
-              >
-                Get in contact
-              </Button>
-            </VStack>
-          </Box>
-        </VStack>
+        <Flex
+          flex={1}
+          width="100%"
+          bgColor="gray.100"
+          {...paddingProps}
+          // paddingTop={40}
+          alignItems="center"
+          justifyContent={"center"}
+          backgroundColor="white"
+          // backgroundWhite="white"
+        >
+          <VStack
+            align="center"
+            justify="space-between"
+            // flexDir={"row"}
+            width={{ base: 400, sm: 600 }}
+            maxW={{ base: 400, sm: 600 }}
+            mt={4}
+            gap={4}
+          >
+            <Button
+              width="100%"
+              // color="gray.200"
+              // cursor="pointer"
+              // as="span"
+              p={{ base: 4, sm: 6 }}
+              borderRadius="xl"
+              // width="100%"
+              // backgroundColor="black"
+              // color="white"
+              fontWeight="semibold"
+              fontSize={{ base: "sm", sm: "md" }}
+              variant="solid"
+              color="gray.200"
+              backgroundColor="gray.700"
+              // backgroundColor="gray.700"
+              _hover={{ color: "white", backgroundColor: "grey.700" }}
+              // _hover={{}}
+              // _hover={{ cursor: "pointer", bg: "gray.200" }} // force it
+              onClick={() => router.push("/signup")}
+            >
+              Set up a session
+            </Button>
+            <Button
+              width="100%"
+              color="gray.700"
+              borderColor="gray.700"
+              cursor="pointer"
+              p={{ base: 4, sm: 6 }}
+              borderRadius="xl"
+              // width="100%"
+              // borderColor="grey"
+              variant="outline"
+              fontWeight="semibold"
+              fontSize={{ base: "sm", sm: "md" }}
+              // color="grey"
+              // _hover={{ backgroundColor: "white" }}
+            >
+              Get in contact
+            </Button>
+          </VStack>
+        </Flex>
       </Flex>
 
       <Flex
