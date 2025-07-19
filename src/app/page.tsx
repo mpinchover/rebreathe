@@ -16,6 +16,13 @@ import { useRouter } from "next/navigation";
 
 import doctor_image from "./image_1.png";
 
+const paddingProps = {
+  paddingTop: { base: 10, sm: 10 },
+  paddingLeft: { base: 2, sm: 5 },
+  paddingRight: { base: 2, sm: 5 },
+  paddingBottom: { base: 10, sm: 10 },
+};
+
 export default function Home() {
   const router = useRouter();
   return (
@@ -40,7 +47,7 @@ export default function Home() {
         paddingBottom={{ base: 10, sm: 10 }}
         alignItems="center"
         justifyContent={"center"}
-        color="black"
+        // color="black"
       >
         <VStack
           align="start"
@@ -51,47 +58,50 @@ export default function Home() {
           <Box width="100%" mt={4}>
             <Flex align="center" mb={2}>
               <Package size={20} style={{ marginRight: 8 }} />
-              <Heading size="md">Equipment shipped to your home</Heading>
+              <Heading size="lg">Equipment shipped to your home</Heading>
             </Flex>
 
             <Flex align="center" mb={2}>
               <Video size={20} style={{ marginRight: 8 }} />
-              <Heading size="md">Virtual therapy appointments</Heading>
+              <Heading size="lg">Virtual therapy appointments</Heading>
             </Flex>
 
             <Flex align="center">
               <Stethoscope size={20} style={{ marginRight: 8 }} />
-              <Heading size="md">
+              <Heading size="lg">
                 Consultations with pulmonary specialists
               </Heading>
             </Flex>
 
             <VStack mt={4} gapY={4}>
               <Button
-                as="span"
+                // cursor="pointer"
+                // as="span"
                 p={{ base: 4, sm: 6 }}
                 borderRadius="xl"
                 width="100%"
-                backgroundColor="black"
-                color="white"
+                // backgroundColor="black"
+                // color="white"
                 fontWeight="semibold"
                 fontSize={{ base: "sm", sm: "md" }}
                 variant="solid"
-                _hover={{}}
+                // _hover={{}}
+                // _hover={{ cursor: "pointer", bg: "gray.200" }} // force it
                 onClick={() => router.push("/signup")}
               >
                 Set up a session
               </Button>
               <Button
+                cursor="pointer"
                 p={{ base: 4, sm: 6 }}
                 borderRadius="xl"
                 width="100%"
-                borderColor="grey"
+                // borderColor="grey"
                 variant="outline"
                 fontWeight="semibold"
                 fontSize={{ base: "sm", sm: "md" }}
-                color="grey"
-                _hover={{ backgroundColor: "white" }}
+                // color="grey"
+                // _hover={{ backgroundColor: "white" }}
               >
                 Get in contact
               </Button>
@@ -103,10 +113,7 @@ export default function Home() {
       <Flex
         width="100%"
         bgColor="gray.100"
-        paddingTop={{ base: 10, sm: 10 }}
-        paddingLeft={{ base: 2, sm: 5 }}
-        paddingRight={{ base: 2, sm: 5 }}
-        paddingBottom={{ base: 10, sm: 10 }}
+        {...paddingProps}
         alignItems="center"
         justifyContent={"center"}
       >
@@ -150,10 +157,7 @@ export default function Home() {
       <Flex
         width="100%"
         bgColor="white"
-        paddingTop={{ base: 10, sm: 10 }}
-        paddingLeft={{ base: 2, sm: 5 }}
-        paddingRight={{ base: 2, sm: 5 }}
-        paddingBottom={{ base: 10, sm: 10 }}
+        {...paddingProps}
         alignItems="center"
         justifyContent={"center"}
       >
@@ -196,10 +200,7 @@ export default function Home() {
       <Flex
         width="100%"
         bgColor="gray.100"
-        paddingTop={{ base: 10, sm: 10 }}
-        paddingLeft={{ base: 2, sm: 5 }}
-        paddingRight={{ base: 2, sm: 5 }}
-        paddingBottom={{ base: 10, sm: 10 }}
+        {...paddingProps}
         alignItems="center"
         justifyContent={"center"}
       >

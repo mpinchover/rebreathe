@@ -1,6 +1,15 @@
 "use client";
 
-import { Box, Flex, Button, Input, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Button,
+  Input,
+  VStack,
+  Heading,
+  InputAddon,
+  InputGroup,
+} from "@chakra-ui/react";
 import { Field } from "@chakra-ui/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -39,40 +48,72 @@ const Signup = () => {
 
   return (
     <Flex
-      height="100dvh"
+      minHeight="100dvh"
       bg="white"
       align={{ base: "start", sm: "center" }}
       justify="center"
-      p={{ base: 6, sm: 12 }}
+      flexDir={"column"}
+      // p={{ base: 6, sm: 12 }}
     >
-      <Box mt={{ base: 20, sm: 100 }} width={400} maxW={400}>
-        <form onSubmit={handleSubmit}>
-          <VStack border="solid 1px" gap={4}>
-            <Field.Root w="100%">
-              <Field.Label color="black">Name</Field.Label>
-              <Input placeholder="Name" />
-            </Field.Root>
-            <Field.Root>
-              <Field.Label color="black">Email</Field.Label>
-              <Input placeholder="me@example.com" />
-            </Field.Root>
-            <Field.Root>
-              <Field.Label color="black">Number</Field.Label>
-              <Input placeholder="123456789" />
-            </Field.Root>
-            <Button
-              type="submit"
-              colorPalette="teal"
-              width="100%"
-              mt={4}
-              fontWeight="semibold"
-              onClick={handleSubmit}
-            >
-              Sign Up
-            </Button>
-          </VStack>
-        </form>
-      </Box>
+      <Flex
+        width="100%"
+        bgColor="white"
+        // paddingY={50}
+
+        p={{ base: 4, sm: 10 }}
+        paddingTop={{ base: 2, sm: 10 }}
+        paddingLeft={{ base: 2, sm: 5 }}
+        paddingRight={{ base: 2, sm: 5 }}
+        paddingBottom={{ base: 10, sm: 10 }}
+        alignItems="center"
+        justifyContent={"center"}
+        color="black"
+      >
+        <VStack
+          align="start"
+          width={{ base: 400, sm: 600 }}
+          maxW={{ base: 400, sm: 600 }}
+        >
+          <Heading size="3xl">Sign up for sessions</Heading>
+          <Heading size="md">We will contact you soon for scheduling</Heading>
+          <form style={{ width: "100%" }} onSubmit={handleSubmit}>
+            <VStack color="black" width="100%" gap={4}>
+              <Field.Root w="100%">
+                <Field.Label color="black">Name</Field.Label>
+                <Input placeholder="Name" />
+              </Field.Root>
+              <Field.Root>
+                <Field.Label color="black">Email</Field.Label>
+                <Input placeholder="me@example.com" />
+              </Field.Root>
+              <Field.Root>
+                <Field.Label color="black">Number</Field.Label>
+                <InputGroup startAddon="+1">
+                  <Input placeholder="123456789" />
+                </InputGroup>
+              </Field.Root>
+              <Button
+                // cursor="pointer"
+                // as="span"
+                p={{ base: 4, sm: 6 }}
+                borderRadius="xl"
+                width="100%"
+                // backgroundColor="black"
+                // color="white"
+                fontWeight="semibold"
+                fontSize={{ base: "sm", sm: "md" }}
+                variant="solid"
+                // _hover={{}}
+                // _hover={{ cursor: "pointer", bg: "gray.200" }} // force it
+                // onClick={() => router.push("/signup")}
+                onClick={handleSubmit}
+              >
+                Submit
+              </Button>
+            </VStack>
+          </form>
+        </VStack>
+      </Flex>
     </Flex>
   );
 };
