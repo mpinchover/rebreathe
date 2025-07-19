@@ -27,6 +27,7 @@ export default function Home() {
   const router = useRouter();
   return (
     <Flex
+      color="gray.700"
       minHeight="100dvh"
       bg="white"
       align={{ base: "start", sm: "center" }}
@@ -82,6 +83,7 @@ export default function Home() {
                 fontWeight="semibold"
                 fontSize={{ base: "sm", sm: "md" }}
                 variant="solid"
+                backgroundColor="gray.700"
                 // _hover={{}}
                 // _hover={{ cursor: "pointer", bg: "gray.200" }} // force it
                 onClick={() => router.push("/signup")}

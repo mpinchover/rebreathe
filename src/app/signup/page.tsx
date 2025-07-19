@@ -14,6 +14,12 @@ import { Field } from "@chakra-ui/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toaster } from "@/components/ui/toaster";
+const paddingProps = {
+  paddingTop: { base: 10, sm: 10 },
+  paddingLeft: { base: 4, sm: 5 },
+  paddingRight: { base: 4, sm: 5 },
+  paddingBottom: { base: 10, sm: 10 },
+};
 
 const Signup = () => {
   const router = useRouter();
@@ -53,6 +59,7 @@ const Signup = () => {
       align={{ base: "start", sm: "center" }}
       //   justify="center"
       flexDir={"column"}
+      color="gray.700"
       // p={{ base: 6, sm: 12 }}
     >
       <Flex
@@ -62,21 +69,21 @@ const Signup = () => {
 
         // p={{ base: 4, sm: 10 }}
         mt={20}
-        paddingTop={{ base: 2, sm: 10 }}
-        paddingLeft={{ base: 2, sm: 5 }}
-        paddingRight={{ base: 2, sm: 5 }}
-        paddingBottom={{ base: 10, sm: 10 }}
+        {...paddingProps}
         alignItems="center"
         justifyContent={"center"}
-        color="black"
       >
         <VStack
           align="start"
           width={{ base: 400, sm: 600 }}
           maxW={{ base: 400, sm: 600 }}
         >
-          <Heading size="3xl">Sign up for sessions</Heading>
-          <Heading size="md">We will contact you soon for scheduling</Heading>
+          <Heading color="gray.700" size="3xl">
+            Sign up for sessions
+          </Heading>
+          <Heading color="gray.700" size="md">
+            We will contact you soon for scheduling
+          </Heading>
           <form style={{ width: "100%" }} onSubmit={handleSubmit}>
             <VStack color="black" width="100%" gap={4}>
               <Field.Root w="100%">
@@ -108,6 +115,7 @@ const Signup = () => {
                 // _hover={{ cursor: "pointer", bg: "gray.200" }} // force it
                 // onClick={() => router.push("/signup")}
                 onClick={handleSubmit}
+                backgroundColor="gray.700"
               >
                 Submit
               </Button>
