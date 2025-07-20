@@ -25,11 +25,22 @@ const paddingProps = {
   paddingBottom: { base: 10, sm: 10 },
 };
 
+const color = "gray.700";
+
+const backgroundImage = {
+  backgroundImage: `
+        linear-gradient(to bottom, rgba(0, 0, 0, .4), rgba(0, 0, 0, 0.9)),
+        url(${bg_image.src})
+      `,
+  backgroundSize: "cover",
+  backgroundPosition: "top",
+  backgroundRepeat: "no-repeat",
+};
+
 export default function Home() {
   const router = useRouter();
   return (
     <Flex
-      color="gray.100"
       bg="white"
       align={{ base: "start", sm: "center" }}
       justify="center"
@@ -40,15 +51,9 @@ export default function Home() {
         <Flex
           flex={1}
           // mt={20}
-          color="gray.200"
+          color={color}
           width="100%"
-          backgroundImage={`
-        linear-gradient(to bottom, rgba(0, 0, 0, .4), rgba(0, 0, 0, 0.9)),
-        url(${bg_image.src})
-      `}
-          backgroundSize="cover"
-          backgroundPosition="top"
-          backgroundRepeat="no-repeat"
+          // {...backgroundImage}
           // bgColor="white"
 
           // paddingY={50}
