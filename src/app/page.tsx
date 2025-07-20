@@ -59,17 +59,27 @@ export default function Home() {
           // paddingY={50}
 
           // p={{ base: 4, sm: 10 }}
-          {...{ ...paddingProps, paddingTop: "100px" }}
+
           alignItems="center"
           justifyContent={"center"}
           // color="black"
         >
           <VStack
+            // {...{ ...paddingProps }}
+            {...{ ...paddingProps, paddingTop: "100px" }}
             align="start"
             width={{ base: 400, sm: 600 }}
             maxW={{ base: 400, sm: 600 }}
           >
-            <Heading size="3xl">Pulmonary rehabilitation from home</Heading>
+            <Heading fontWeight="normal" size="3xl">
+              <Text fontWeight="semibold" as="span" color="blue.400">
+                Customized
+              </Text>{" "}
+              pulmonary rehabilitation{" "}
+              <Text fontWeight="semibold" as="span" color="blue.500">
+                from home
+              </Text>
+            </Heading>
             <Box width="100%" mt={4}>
               <Flex align="center" mb={2}>
                 <Package size={20} style={{ marginRight: 8 }} />
@@ -93,16 +103,18 @@ export default function Home() {
 
         <Flex
           flex={1}
+          // border="solid 1px blue"
           width="100%"
-          bgColor="gray.100"
-          {...paddingProps}
+          // backgroundColor="red"
+
           // paddingTop={40}
           alignItems="center"
           justifyContent={"center"}
-          backgroundColor="white"
+          backgroundColor="gray.100"
           // backgroundWhite="white"
         >
           <VStack
+            {...paddingProps}
             align="center"
             justify="space-between"
             // flexDir={"row"}
@@ -157,12 +169,14 @@ export default function Home() {
 
       <Flex
         width="100%"
-        bgColor="gray.100"
-        {...paddingProps}
+        bgColor="white"
         alignItems="center"
         justifyContent={"center"}
       >
         <VStack
+          {...paddingProps}
+          paddingTop={"100px"}
+          paddingBottom={"100px"}
           // border="solid 1px green"
           width={{ base: 400, sm: 600 }}
           maxW={{ base: 400, sm: 600 }}
@@ -201,12 +215,14 @@ export default function Home() {
 
       <Flex
         width="100%"
-        bgColor="white"
-        {...paddingProps}
+        bgColor="gray.100"
         alignItems="center"
         justifyContent={"center"}
       >
         <VStack
+          {...paddingProps}
+          paddingTop={"100px"}
+          paddingBottom={"100px"}
           width={{ base: 400, sm: 600 }}
           maxW={{ base: 400, sm: 600 }}
           gap={4}
@@ -244,14 +260,16 @@ export default function Home() {
       {/* Doctor Info Box */}
       <Flex
         width="100%"
-        bgColor="gray.100"
-        {...paddingProps}
+        bgColor="white"
         alignItems="center"
         justifyContent={"center"}
       >
         <VStack
           width={{ base: 400, sm: 600 }}
           maxW={{ base: 400, sm: 600 }}
+          {...paddingProps}
+          paddingTop={"100px"}
+          paddingBottom={"100px"}
           gap={4}
           fontSize={{ base: "sm", sm: "lg" }}
           color="gray.700"
