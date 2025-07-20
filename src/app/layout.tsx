@@ -14,6 +14,8 @@ export const metadata: Metadata = {
 const nunito = Nunito({
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-nunito",
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export default function RootLayout({
@@ -22,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning className={nunito.className}>
-      <body className={nunito.className}>
+    <html suppressHydrationWarning className={nunito.variable}>
+      <body>
         <Provider>
           <Theme appearance="light">
             <Box position="relative">
