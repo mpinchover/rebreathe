@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Nunito } from "next/font/google";
 import type { Metadata } from "next";
 import { Provider } from "@/components/ui/provider";
 import Navbar from "./navbar/navbar";
@@ -10,14 +11,19 @@ export const metadata: Metadata = {
   description: "Virtual Pulmonary Therapy",
 };
 
+const nunito = Nunito({
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning>
-      <body>
+    <html suppressHydrationWarning className={nunito.className}>
+      <body className={nunito.className}>
         <Provider>
           <Theme appearance="light">
             <Box position="relative">
