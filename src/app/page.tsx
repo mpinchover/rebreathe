@@ -20,8 +20,8 @@ import bg_image_3 from "./bg_image_3.png";
 
 const paddingProps = {
   paddingTop: { base: "50px", sm: "50px" },
-  paddingLeft: { base: "4px", sm: "10px" },
-  paddingRight: { base: "4px", sm: "10px" },
+  paddingLeft: "10px",
+  paddingRight: "10px",
   paddingBottom: { base: "50px", sm: "50px" },
 };
 const color = "gray.700";
@@ -193,6 +193,44 @@ const PackageTherapy = () => {
   );
 };
 
+const Bio = () => {
+  return (
+    <VStack
+      width={{ base: 400, sm: 600 }}
+      maxW={{ base: 400, sm: 600 }}
+      gap={4}
+      fontSize={{ base: "sm", sm: "lg" }}
+      color="gray.700"
+      align="start"
+    >
+      <Flex align="center" gap={6} flexDir={"column"}>
+        <Image
+          src={doctor_image.src}
+          alt="Dr. Zachary Pinchover"
+          height={{ base: "80px", sm: "120px" }}
+          width={{ base: "80px", sm: "120px" }}
+          borderRadius="full"
+          objectFit="cover"
+        />
+        <Text fontSize={{ base: "sm", sm: "md" }} color="gray.700">
+          <CHLink
+            href="https://www.linkedin.com/in/zackpinchover/"
+            target="_blank"
+            color="teal.600"
+            fontWeight="semibold"
+            _hover={{ textDecoration: "underline" }}
+          >
+            Dr Pinchover
+          </CHLink>{" "}
+          is a board certified pulmonologist who treats a wide range of complex
+          pulmonary diseases and is excited to give you the best results and
+          allow you to "ReBreathe" again.
+        </Text>
+      </Flex>
+    </VStack>
+  );
+};
+
 export default function Home() {
   const router = useRouter();
 
@@ -255,39 +293,7 @@ export default function Home() {
         justifyContent={"center"}
         {...paddingProps}
       >
-        <VStack
-          width={{ base: 400, sm: 600 }}
-          maxW={{ base: 400, sm: 600 }}
-          gap={4}
-          fontSize={{ base: "sm", sm: "lg" }}
-          color="gray.700"
-          align="start"
-        >
-          <Flex align="center" gap={6} flexDir={"column"}>
-            <Image
-              src={doctor_image.src}
-              alt="Dr. Zachary Pinchover"
-              height={{ base: "80px", sm: "120px" }}
-              width={{ base: "80px", sm: "120px" }}
-              borderRadius="full"
-              objectFit="cover"
-            />
-            <Text fontSize={{ base: "sm", sm: "md" }} color="gray.700">
-              <CHLink
-                href="https://www.linkedin.com/in/zackpinchover/"
-                target="_blank"
-                color="teal.600"
-                fontWeight="semibold"
-                _hover={{ textDecoration: "underline" }}
-              >
-                Dr Pinchover
-              </CHLink>{" "}
-              is a board certified pulmonologist who treats a wide range of
-              complex pulmonary diseases and is excited to give you the best
-              results and allow you to "ReBreathe" again.
-            </Text>
-          </Flex>
-        </VStack>
+        <Bio />
       </Flex>
     </Flex>
   );
