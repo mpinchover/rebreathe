@@ -19,12 +19,11 @@ import bg_image from "./bg_image_2.png";
 import bg_image_3 from "./bg_image_3.png";
 
 const paddingProps = {
-  paddingTop: { base: 10, sm: 10 },
-  paddingLeft: { base: 4, sm: 5 },
-  paddingRight: { base: 4, sm: 5 },
-  paddingBottom: { base: 10, sm: 10 },
+  paddingTop: { base: "50px", sm: "50px" },
+  paddingLeft: { base: "4px", sm: "10px" },
+  paddingRight: { base: "4px", sm: "10px" },
+  paddingBottom: { base: "50px", sm: "50px" },
 };
-
 const color = "gray.700";
 
 const backgroundImage = {
@@ -37,224 +36,215 @@ const backgroundImage = {
   backgroundRepeat: "no-repeat",
 };
 
+const MainHeader = () => {
+  return (
+    <VStack
+      align="start"
+      width={{ base: 400, sm: 600 }}
+      maxW={{ base: 400, sm: 600 }}
+    >
+      <Heading fontWeight="normal" size="3xl">
+        <Text fontWeight="semibold" as="span" color="blue.400">
+          Customized
+        </Text>{" "}
+        pulmonary rehabilitation{" "}
+        <Text fontWeight="semibold" as="span" color="blue.500">
+          from home
+        </Text>
+      </Heading>
+      <Box width="100%" mt={4}>
+        <Flex align="center" mb={2}>
+          <Package size={20} style={{ marginRight: 8 }} />
+          <Heading size="lg">Equipment shipped to your home</Heading>
+        </Flex>
+
+        <Flex align="center" mb={2}>
+          <Video size={20} style={{ marginRight: 8 }} />
+          <Heading size="lg">Virtual therapy appointments</Heading>
+        </Flex>
+
+        <Flex align="center">
+          <Stethoscope size={20} style={{ marginRight: 8 }} />
+          <Heading size="lg">Consultations with pulmonary specialists</Heading>
+        </Flex>
+      </Box>
+    </VStack>
+  );
+};
+
+const MainButtons = () => {
+  const router = useRouter();
+  return (
+    <VStack
+      align="center"
+      justify="space-between"
+      width={{ base: 400, sm: 600 }}
+      maxW={{ base: 400, sm: 600 }}
+      gap={4}
+    >
+      <Button
+        width="100%"
+        p={{ base: "4px", sm: "6px" }}
+        borderRadius="xl"
+        fontWeight="semibold"
+        fontSize={{ base: "sm", sm: "md" }}
+        variant="solid"
+        color="gray.200"
+        backgroundColor="gray.700"
+        _hover={{ color: "white", backgroundColor: "grey.700" }}
+        onClick={() => router.push("/signup")}
+      >
+        Set up a session
+      </Button>
+      <Button
+        width="100%"
+        color="gray.700"
+        borderColor="gray.700"
+        cursor="pointer"
+        p={{ base: "4px", sm: "6px" }}
+        borderRadius="xl"
+        variant="outline"
+        fontWeight="semibold"
+        fontSize={{ base: "sm", sm: "md" }}
+        // color="grey"
+        // _hover={{ backgroundColor: "white" }}
+      >
+        Get in contact
+      </Button>
+    </VStack>
+  );
+};
+
+const TypicalSession = () => {
+  return (
+    <VStack
+      // border="solid 1px green"
+      width={{ base: 400, sm: 600 }}
+      maxW={{ base: 400, sm: 600 }}
+      // border="solid 1px black"
+      // gapY={4}
+      fontSize={{ base: "sm", sm: "lg" }}
+      color="gray.700"
+      align="start"
+    >
+      <Heading>A typical session</Heading>
+
+      <SimpleGrid
+        // fontSize={"sm"}
+        fontWeight="semibold"
+        lineHeight={2}
+        columns={2}
+        w="100%"
+      >
+        <Box>
+          <Text>Warm-up</Text>
+          <Text>Aerobic training</Text>
+          <Text>Resistance training</Text>
+          <Text>Balance training</Text>
+          <Text>Cool down</Text>
+        </Box>
+        <Box textAlign="right">
+          <Text>5 min</Text>
+          <Text>25 min</Text>
+          <Text>25 min</Text>
+          <Text>10 min</Text>
+          <Text>5 min</Text>
+        </Box>
+      </SimpleGrid>
+    </VStack>
+  );
+};
+
+const PackageTherapy = () => {
+  return (
+    <VStack
+      width={{ base: 400, sm: 600 }}
+      maxW={{ base: 400, sm: 600 }}
+      gap={4}
+      fontSize={{ base: "sm", sm: "lg" }}
+      color="gray.700"
+      align="start"
+    >
+      <Heading>12 session package</Heading>
+
+      <SimpleGrid
+        // fontSize={"sm"}
+        fontWeight="semibold"
+        lineHeight={2}
+        columns={2}
+        w="100%"
+      >
+        <Box>
+          <Text>Session 1</Text>
+          <Text>Sessions 2-5</Text>
+          <Text>Session 6</Text>
+          <Text>Session 7-11</Text>
+          <Text>Session 12</Text>
+        </Box>
+        <Box textAlign="right">
+          <Text>Intake</Text>
+          <Text>Pulm. Rehabilitation</Text>
+          <Text>Consultation</Text>
+          <Text>Pulm. Rehabilitation</Text>
+          <Text>Consultation</Text>
+        </Box>
+      </SimpleGrid>
+    </VStack>
+  );
+};
+
 export default function Home() {
   const router = useRouter();
+
   return (
     <Flex
       bg="white"
       align={{ base: "start", sm: "center" }}
       justify="center"
       flexDir={"column"}
-      // p={{ base: 6, sm: 12 }}
+      minHeight="100dvh"
+      width="100%"
     >
-      <Flex height="100dvh" flexDir={"column"} width="100%">
-        <Flex
-          flex={1}
-          // mt={20}
-          color={color}
-          width="100%"
-          // {...backgroundImage}
-          // bgColor="white"
-
-          // paddingY={50}
-
-          // p={{ base: 4, sm: 10 }}
-
-          alignItems="center"
-          justifyContent={"center"}
-          // color="black"
-        >
-          <VStack
-            // {...{ ...paddingProps }}
-            {...{ ...paddingProps, paddingTop: "100px" }}
-            align="start"
-            width={{ base: 400, sm: 600 }}
-            maxW={{ base: 400, sm: 600 }}
-          >
-            <Heading fontWeight="normal" size="3xl">
-              <Text fontWeight="semibold" as="span" color="blue.400">
-                Customized
-              </Text>{" "}
-              pulmonary rehabilitation{" "}
-              <Text fontWeight="semibold" as="span" color="blue.500">
-                from home
-              </Text>
-            </Heading>
-            <Box width="100%" mt={4}>
-              <Flex align="center" mb={2}>
-                <Package size={20} style={{ marginRight: 8 }} />
-                <Heading size="lg">Equipment shipped to your home</Heading>
-              </Flex>
-
-              <Flex align="center" mb={2}>
-                <Video size={20} style={{ marginRight: 8 }} />
-                <Heading size="lg">Virtual therapy appointments</Heading>
-              </Flex>
-
-              <Flex align="center">
-                <Stethoscope size={20} style={{ marginRight: 8 }} />
-                <Heading size="lg">
-                  Consultations with pulmonary specialists
-                </Heading>
-              </Flex>
-            </Box>
-          </VStack>
-        </Flex>
-
-        <Flex
-          flex={1}
-          // border="solid 1px blue"
-          width="100%"
-          // backgroundColor="red"
-
-          // paddingTop={40}
-          alignItems="center"
-          justifyContent={"center"}
-          backgroundColor="gray.100"
-          // backgroundWhite="white"
-        >
-          <VStack
-            {...paddingProps}
-            align="center"
-            justify="space-between"
-            // flexDir={"row"}
-            width={{ base: 400, sm: 600 }}
-            maxW={{ base: 400, sm: 600 }}
-            mt={4}
-            gap={4}
-          >
-            <Button
-              width="100%"
-              // color="gray.200"
-              // cursor="pointer"
-              // as="span"
-              p={{ base: 4, sm: 6 }}
-              borderRadius="xl"
-              // width="100%"
-              // backgroundColor="black"
-              // color="white"
-              fontWeight="semibold"
-              fontSize={{ base: "sm", sm: "md" }}
-              variant="solid"
-              color="gray.200"
-              backgroundColor="gray.700"
-              // backgroundColor="gray.700"
-              _hover={{ color: "white", backgroundColor: "grey.700" }}
-              // _hover={{}}
-              // _hover={{ cursor: "pointer", bg: "gray.200" }} // force it
-              onClick={() => router.push("/signup")}
-            >
-              Set up a session
-            </Button>
-            <Button
-              width="100%"
-              color="gray.700"
-              borderColor="gray.700"
-              cursor="pointer"
-              p={{ base: 4, sm: 6 }}
-              borderRadius="xl"
-              // width="100%"
-              // borderColor="grey"
-              variant="outline"
-              fontWeight="semibold"
-              fontSize={{ base: "sm", sm: "md" }}
-              // color="grey"
-              // _hover={{ backgroundColor: "white" }}
-            >
-              Get in contact
-            </Button>
-          </VStack>
-        </Flex>
+      <Flex
+        {...paddingProps}
+        height="400px"
+        width="100%"
+        alignItems="center"
+        justifyContent={"center"}
+        backgroundColor="white"
+      >
+        <MainHeader />
       </Flex>
 
       <Flex
+        {...paddingProps}
+        height="400px"
+        width="100%"
+        alignItems="center"
+        justifyContent={"center"}
+        backgroundColor="gray.100"
+      >
+        <MainButtons />
+      </Flex>
+
+      <Flex
+        {...paddingProps}
         width="100%"
         bgColor="white"
         alignItems="center"
         justifyContent={"center"}
       >
-        <VStack
-          {...paddingProps}
-          paddingTop={"100px"}
-          paddingBottom={"100px"}
-          // border="solid 1px green"
-          width={{ base: 400, sm: 600 }}
-          maxW={{ base: 400, sm: 600 }}
-          // border="solid 1px black"
-          // gapY={4}
-          fontSize={{ base: "sm", sm: "lg" }}
-          color="gray.700"
-          align="start"
-        >
-          <Heading>A typical session</Heading>
-
-          <SimpleGrid
-            // fontSize={"sm"}
-            fontWeight="semibold"
-            lineHeight={2}
-            columns={2}
-            w="100%"
-          >
-            <Box>
-              <Text>Warm-up</Text>
-              <Text>Aerobic training</Text>
-              <Text>Resistance training</Text>
-              <Text>Balance training</Text>
-              <Text>Cool down</Text>
-            </Box>
-            <Box textAlign="right">
-              <Text>5 min</Text>
-              <Text>25 min</Text>
-              <Text>25 min</Text>
-              <Text>10 min</Text>
-              <Text>5 min</Text>
-            </Box>
-          </SimpleGrid>
-        </VStack>
+        <TypicalSession />
       </Flex>
 
       <Flex
+        {...paddingProps}
         width="100%"
         bgColor="gray.100"
         alignItems="center"
         justifyContent={"center"}
       >
-        <VStack
-          {...paddingProps}
-          paddingTop={"100px"}
-          paddingBottom={"100px"}
-          width={{ base: 400, sm: 600 }}
-          maxW={{ base: 400, sm: 600 }}
-          gap={4}
-          fontSize={{ base: "sm", sm: "lg" }}
-          color="gray.700"
-          align="start"
-        >
-          <Heading>12 session package</Heading>
-
-          <SimpleGrid
-            // fontSize={"sm"}
-            fontWeight="semibold"
-            lineHeight={2}
-            columns={2}
-            w="100%"
-          >
-            <Box>
-              <Text>Session 1</Text>
-              <Text>Sessions 2-5</Text>
-              <Text>Session 6</Text>
-              <Text>Session 7-11</Text>
-              <Text>Session 12</Text>
-            </Box>
-            <Box textAlign="right">
-              <Text>Intake</Text>
-              <Text>Pulm. Rehabilitation</Text>
-              <Text>Consultation</Text>
-              <Text>Pulm. Rehabilitation</Text>
-              <Text>Consultation</Text>
-            </Box>
-          </SimpleGrid>
-        </VStack>
+        <PackageTherapy />
       </Flex>
 
       {/* Doctor Info Box */}
@@ -263,13 +253,11 @@ export default function Home() {
         bgColor="white"
         alignItems="center"
         justifyContent={"center"}
+        {...paddingProps}
       >
         <VStack
           width={{ base: 400, sm: 600 }}
           maxW={{ base: 400, sm: 600 }}
-          {...paddingProps}
-          paddingTop={"100px"}
-          paddingBottom={"100px"}
           gap={4}
           fontSize={{ base: "sm", sm: "lg" }}
           color="gray.700"
