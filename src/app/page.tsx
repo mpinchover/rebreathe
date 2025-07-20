@@ -20,8 +20,8 @@ import bg_image_3 from "./bg_image_3.png";
 
 const paddingProps = {
   paddingTop: { base: "50px", sm: "50px" },
-  paddingLeft: "10px",
-  paddingRight: "10px",
+  paddingLeft: "20px",
+  paddingRight: "20px",
   paddingBottom: { base: "50px", sm: "50px" },
 };
 const color = "gray.700";
@@ -39,11 +39,19 @@ const backgroundImage = {
 const MainHeader = () => {
   return (
     <VStack
-      align="start"
-      width={{ base: 400, sm: 600 }}
-      maxW={{ base: 400, sm: 600 }}
+      // align="center"
+      // width={{ base: 300, sm: 600 }}
+      // maxW={{ base: 300, sm: 600 }}
+      maxW={{ base: "100%", sm: "600px" }}
+      gap={"30px"}
     >
-      <Heading fontWeight="normal" size="3xl">
+      <Heading
+        margin={0}
+        // border="solid 1px blue"
+        // textAlign={{ base: "center", sm: "start" }}
+        fontWeight="normal"
+        size="4xl"
+      >
         <Text fontWeight="semibold" as="span" color="blue.400">
           Customized
         </Text>{" "}
@@ -52,22 +60,28 @@ const MainHeader = () => {
           from home
         </Text>
       </Heading>
-      <Box width="100%" mt={4}>
+      <VStack
+        margin={0}
+        // border="solid 1px blue"
+        alignItems="start"
+        width="100%"
+      >
         <Flex align="center" mb={2}>
           <Package size={20} style={{ marginRight: 8 }} />
-          <Heading size="lg">Equipment shipped to your home</Heading>
+          <Heading size="md">Equipment shipped to your home</Heading>
         </Flex>
 
-        <Flex align="center" mb={2}>
+        <Flex align="center" mb={"2px"}>
           <Video size={20} style={{ marginRight: 8 }} />
-          <Heading size="lg">Virtual therapy appointments</Heading>
+          <Heading size="md">Virtual therapy appointments</Heading>
         </Flex>
 
         <Flex align="center">
           <Stethoscope size={20} style={{ marginRight: 8 }} />
-          <Heading size="lg">Consultations with pulmonary specialists</Heading>
+          <Heading size="md">Consultations with pulmonary specialists</Heading>
         </Flex>
-      </Box>
+      </VStack>
+      <MainButtons />
     </VStack>
   );
 };
@@ -76,18 +90,19 @@ const MainButtons = () => {
   const router = useRouter();
   return (
     <VStack
-      align="center"
-      justify="space-between"
-      width={{ base: 400, sm: 600 }}
-      maxW={{ base: 400, sm: 600 }}
-      gap={4}
+      width="100%"
+      // maxW={{ base: "100%", sm: "600px" }}
+      gap={"10px"}
+      // mt={"30px"}
+      // border="solid 1px blue"
+      // border="solid 1px red"
     >
       <Button
         width="100%"
-        p={{ base: "4px", sm: "6px" }}
+        p="20px"
         borderRadius="xl"
         fontWeight="semibold"
-        fontSize={{ base: "sm", sm: "md" }}
+        fontSize={{ base: "md", sm: "lg" }}
         variant="solid"
         color="gray.200"
         backgroundColor="gray.700"
@@ -101,11 +116,11 @@ const MainButtons = () => {
         color="gray.700"
         borderColor="gray.700"
         cursor="pointer"
-        p={{ base: "4px", sm: "6px" }}
+        p="20px"
         borderRadius="xl"
         variant="outline"
         fontWeight="semibold"
-        fontSize={{ base: "sm", sm: "md" }}
+        fontSize={{ base: "md", sm: "lg" }}
         // color="grey"
         // _hover={{ backgroundColor: "white" }}
       >
@@ -119,8 +134,8 @@ const TypicalSession = () => {
   return (
     <VStack
       // border="solid 1px green"
-      width={{ base: 400, sm: 600 }}
-      maxW={{ base: 400, sm: 600 }}
+      width="100%"
+      maxW={{ base: "100%", sm: "600px" }}
       // border="solid 1px black"
       // gapY={4}
       fontSize={{ base: "sm", sm: "lg" }}
@@ -158,8 +173,8 @@ const TypicalSession = () => {
 const PackageTherapy = () => {
   return (
     <VStack
-      width={{ base: 400, sm: 600 }}
-      maxW={{ base: 400, sm: 600 }}
+      width="100%"
+      maxW={{ base: "100%", sm: "600px" }}
       gap={4}
       fontSize={{ base: "sm", sm: "lg" }}
       color="gray.700"
@@ -196,8 +211,8 @@ const PackageTherapy = () => {
 const Bio = () => {
   return (
     <VStack
-      width={{ base: 400, sm: 600 }}
-      maxW={{ base: 400, sm: 600 }}
+      width="100%"
+      maxW={{ base: "100%", sm: "600px" }}
       gap={4}
       fontSize={{ base: "sm", sm: "lg" }}
       color="gray.700"
@@ -245,24 +260,25 @@ export default function Home() {
     >
       <Flex
         {...paddingProps}
-        height="400px"
+        // height="400px"
+        paddingTop="100px"
         width="100%"
         alignItems="center"
         justifyContent={"center"}
         backgroundColor="white"
+        flexDirection="column"
       >
         <MainHeader />
+        {/* <MainButtons /> */}
       </Flex>
-
       <Flex
-        {...paddingProps}
-        height="400px"
         width="100%"
+        bgColor="gray.100"
         alignItems="center"
         justifyContent={"center"}
-        backgroundColor="gray.100"
+        {...paddingProps}
       >
-        <MainButtons />
+        <Bio />
       </Flex>
 
       <Flex
@@ -286,15 +302,6 @@ export default function Home() {
       </Flex>
 
       {/* Doctor Info Box */}
-      <Flex
-        width="100%"
-        bgColor="white"
-        alignItems="center"
-        justifyContent={"center"}
-        {...paddingProps}
-      >
-        <Bio />
-      </Flex>
     </Flex>
   );
 }
