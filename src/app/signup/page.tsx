@@ -17,10 +17,10 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toaster } from "@/components/ui/toaster";
 const paddingProps = {
-  paddingTop: { base: 10, sm: 10 },
-  paddingLeft: { base: 4, sm: 5 },
-  paddingRight: { base: 4, sm: 5 },
-  paddingBottom: { base: 10, sm: 10 },
+  paddingTop: { base: "50px", sm: "50px" },
+  paddingLeft: "20px",
+  paddingRight: "20px",
+  paddingBottom: { base: "50px", sm: "50px" },
 };
 
 const Signup = () => {
@@ -32,18 +32,75 @@ const Signup = () => {
     number: "",
   });
 
+  const [formErrors, setFormErrors] = useState({
+    name: "",
+    email: "",
+    number: "",
+  });
+
+  const validate = () => {
+    const errors: { name: string; email: string; number: string } = {
+      name: "",
+      email: "",
+      number: "",
+    };
+
+    if (!formData.name.trim()) {
+      errors.name = "Name is required.";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      errors.email = "Email is required.";
+    } else if (!emailRegex.test(formData.email)) {
+      errors.email = "Invalid email format.";
+    }
+
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!formData.number.trim()) {
+      errors.number = "Mobile number is required.";
+    } else if (!phoneRegex.test(formData.number)) {
+      errors.number = "Enter a valid 10-digit number.";
+    }
+
+    setFormErrors(errors);
+    return !Object.values(errors).some((errorMsg) => errorMsg !== "");
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormErrors({ ...formErrors, [e.target.name]: "" });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validate()) {
+      const combinedErrors = Object.values(formErrors)
+        .filter(Boolean)
+        .join(" ");
+
+      toaster.create({
+        title: "Validation Error",
+        description:
+          combinedErrors || "Please fix the errors in the form fields.",
+        type: "error",
+        duration: 4000,
+      });
+      return;
+    }
 
     try {
       const docRef = await addDoc(collection(db, "users"), {
         name: formData.name,
         email: formData.email,
         number: formData.number,
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        number: "",
       });
 
       toaster.create({
@@ -104,27 +161,37 @@ const Signup = () => {
           </Heading>
           <form style={{ width: "100%" }} onSubmit={handleSubmit}>
             <VStack color="black" width="100%" gap={4}>
-              <Field.Root w="100%">
+              <Field.Root invalid={!!formErrors.name} w="100%">
                 <Field.Label color="black">Name</Field.Label>
-                <Input name="name" onChange={handleChange} placeholder="Name" />
+                <Input
+                  value={formData.name}
+                  name="name"
+                  onChange={handleChange}
+                  placeholder="Name"
+                />
+                <Field.ErrorText>{formErrors.name}</Field.ErrorText>
               </Field.Root>
-              <Field.Root>
+              <Field.Root invalid={!!formErrors.email}>
                 <Field.Label color="black">Email</Field.Label>
                 <Input
                   name="email"
                   onChange={handleChange}
+                  value={formData.email}
                   placeholder="me@example.com"
                 />
+                <Field.ErrorText>{formErrors.email}</Field.ErrorText>
               </Field.Root>
-              <Field.Root>
+              <Field.Root invalid={!!formErrors.number}>
                 <Field.Label color="black">Number</Field.Label>
                 <InputGroup startAddon="+1">
                   <Input
+                    value={formData.number}
                     name="number"
                     onChange={handleChange}
                     placeholder="123456789"
                   />
                 </InputGroup>
+                <Field.ErrorText>{formErrors.number}</Field.ErrorText>
               </Field.Root>
               <Button
                 width="100%"
