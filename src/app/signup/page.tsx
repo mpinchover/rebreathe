@@ -1,4 +1,6 @@
 "use client";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 import {
   Box,
@@ -34,22 +36,38 @@ const Signup = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    try {
+      const docRef = await addDoc(collection(db, "users"), {
+        name: formData.name,
+        email: formData.email,
+        number: formData.number,
+      });
+
+      toaster.create({
+        title: "Success!",
+        description: "Thanks for signing up — we'll be in contact soon.",
+        type: "success",
+        duration: 3000,
+      });
+
+      // Redirect to home after 3 seconds
+      setTimeout(() => {
+        router.push("/");
+      }, 3000);
+    } catch (e) {
+      toaster.create({
+        title: "Error",
+        description: "Could not sign up. Please try again.",
+        type: "error",
+        duration: 3000,
+      });
+      console.error("Error adding document: ", e);
+    }
+
     // You can add actual form submission logic here (API call, etc.)
-
-    toaster.create({
-      title: "Success!",
-      description: "Thanks for signing up — we'll be in contact soon.",
-      type: "success",
-      duration: 3000,
-    });
-
-    // Redirect to home after 3 seconds
-    setTimeout(() => {
-      router.push("/");
-    }, 3000);
   };
 
   return (
@@ -88,34 +106,37 @@ const Signup = () => {
             <VStack color="black" width="100%" gap={4}>
               <Field.Root w="100%">
                 <Field.Label color="black">Name</Field.Label>
-                <Input placeholder="Name" />
+                <Input name="name" onChange={handleChange} placeholder="Name" />
               </Field.Root>
               <Field.Root>
                 <Field.Label color="black">Email</Field.Label>
-                <Input placeholder="me@example.com" />
+                <Input
+                  name="email"
+                  onChange={handleChange}
+                  placeholder="me@example.com"
+                />
               </Field.Root>
               <Field.Root>
                 <Field.Label color="black">Number</Field.Label>
                 <InputGroup startAddon="+1">
-                  <Input placeholder="123456789" />
+                  <Input
+                    name="number"
+                    onChange={handleChange}
+                    placeholder="123456789"
+                  />
                 </InputGroup>
               </Field.Root>
               <Button
-                // cursor="pointer"
-                // as="span"
-                p={{ base: 4, sm: 6 }}
-                borderRadius="xl"
                 width="100%"
-                // backgroundColor="black"
-                // color="white"
+                p="20px"
+                borderRadius="xl"
                 fontWeight="semibold"
-                fontSize={{ base: "sm", sm: "md" }}
+                fontSize={{ base: "md", sm: "lg" }}
                 variant="solid"
-                // _hover={{}}
-                // _hover={{ cursor: "pointer", bg: "gray.200" }} // force it
-                // onClick={() => router.push("/signup")}
-                onClick={handleSubmit}
+                color="gray.200"
                 backgroundColor="gray.700"
+                _hover={{ color: "white", backgroundColor: "grey.700" }}
+                onClick={handleSubmit}
               >
                 Submit
               </Button>

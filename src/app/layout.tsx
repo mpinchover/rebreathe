@@ -1,4 +1,5 @@
 import "./globals.css";
+
 import { Nunito } from "next/font/google";
 import type { Metadata } from "next";
 import { Provider } from "@/components/ui/provider";
