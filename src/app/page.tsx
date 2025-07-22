@@ -142,10 +142,11 @@ const TypicalSession = () => {
       color="gray.700"
       align="start"
     >
-      <Heading>A typical session</Heading>
+      <Heading size={{ base: "2xl", sm: "3xl" }}>A typical session</Heading>
 
       <SimpleGrid
-        // fontSize={"sm"}
+        // mt={"20px"}
+        fontSize={{ base: "sm", sm: "md" }}
         fontWeight="semibold"
         lineHeight={2}
         columns={2}
@@ -180,9 +181,10 @@ const PackageTherapy = () => {
       color="gray.700"
       align="start"
     >
-      <Heading>12 session package</Heading>
+      <Heading size={{ base: "2xl", sm: "3xl" }}>12 session package</Heading>
 
       <SimpleGrid
+        fontSize={{ base: "sm", sm: "md" }}
         // fontSize={"sm"}
         fontWeight="semibold"
         lineHeight={2}
