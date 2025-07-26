@@ -111,21 +111,25 @@ const MainButtons = () => {
       >
         Set up a session
       </Button>
-      <Button
+      <CHLink
+        _hover={{ textDecoration: "none" }}
         width="100%"
-        color="gray.700"
-        borderColor="gray.700"
-        cursor="pointer"
-        p="20px"
-        borderRadius="xl"
-        variant="outline"
-        fontWeight="semibold"
-        fontSize={{ base: "md", sm: "lg" }}
-        // color="grey"
-        // _hover={{ backgroundColor: "white" }}
+        href="mailto:hello@rebreathe.io"
       >
-        Get in contact
-      </Button>
+        <Button
+          width="100%"
+          color="gray.700"
+          borderColor="gray.700"
+          cursor="pointer"
+          p="20px"
+          borderRadius="xl"
+          variant="outline"
+          fontWeight="semibold"
+          fontSize={{ base: "md", sm: "lg" }}
+        >
+          Get in contact
+        </Button>
+      </CHLink>
     </VStack>
   );
 };
