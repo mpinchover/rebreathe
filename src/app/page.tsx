@@ -111,25 +111,6 @@ const MainButtons = () => {
       >
         Set up a session
       </Button>
-      <CHLink
-        _hover={{ textDecoration: "none" }}
-        width="100%"
-        href="mailto:hello@rebreathe.io"
-      >
-        <Button
-          width="100%"
-          color="gray.700"
-          borderColor="gray.700"
-          cursor="pointer"
-          p="20px"
-          borderRadius="xl"
-          variant="outline"
-          fontWeight="semibold"
-          fontSize={{ base: "md", sm: "lg" }}
-        >
-          Get in contact
-        </Button>
-      </CHLink>
     </VStack>
   );
 };
@@ -252,6 +233,30 @@ const Bio = () => {
   );
 };
 
+const Footer = () => {
+  return (
+    <Flex
+      width="100%"
+      maxW={{ base: "100%", sm: "600px" }}
+      // fontSize={{ base: "sm", sm: "lg" }}
+      color="gray.700"
+      align="start"
+    >
+      <Text width="100%" fontSize={{ base: "sm", sm: "md" }} textAlign="left">
+        Contact us at{" "}
+        <CHLink
+          href="mailto:hello@rebreathe.io"
+          color="blue.500"
+          fontWeight="semibold"
+          _hover={{ textDecoration: "none" }}
+        >
+          hello@rebreathe.io
+        </CHLink>
+      </Text>
+    </Flex>
+  );
+};
+
 export default function Home() {
   const router = useRouter();
 
@@ -305,6 +310,16 @@ export default function Home() {
         justifyContent={"center"}
       >
         <PackageTherapy />
+      </Flex>
+
+      <Flex
+        {...paddingProps}
+        width="100%"
+        bgColor="white"
+        alignItems="center"
+        justifyContent={"center"}
+      >
+        <Footer />
       </Flex>
 
       {/* Doctor Info Box */}
